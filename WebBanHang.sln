@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebBanHang", "WebBanHang\WebBanHang.csproj", "{B7375A8C-3D6B-4DB1-9FF2-516FAA0465AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrangWebBanHang", "TrangWebBanHang\TrangWebBanHang.csproj", "{A82B698B-14A2-4547-B606-3A70F5B56EDD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7375A8C-3D6B-4DB1-9FF2-516FAA0465AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7375A8C-3D6B-4DB1-9FF2-516FAA0465AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7375A8C-3D6B-4DB1-9FF2-516FAA0465AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7375A8C-3D6B-4DB1-9FF2-516FAA0465AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A82B698B-14A2-4547-B606-3A70F5B56EDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A82B698B-14A2-4547-B606-3A70F5B56EDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A82B698B-14A2-4547-B606-3A70F5B56EDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A82B698B-14A2-4547-B606-3A70F5B56EDD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F6887DD3-D98C-4830-8D50-515E7CF2E016}
+	EndGlobalSection
+EndGlobal

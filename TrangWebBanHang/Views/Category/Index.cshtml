@@ -1,0 +1,36 @@
+﻿@model IEnumerable<TrangWebBanHang.Models.Category>
+
+@{
+    ViewData["Title"] = "Danh sách các Category";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tên Category</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in Model)
+        {
+            <tr>
+                <td>@category.Id</td>
+                <td>@category.Name</td>
+                <td>
+                    <a href="@Url.Action("Update", new { id = category.Id })" class="btn btn-primary">Edit</a>
+                    <a href="@Url.Action("Delete", new { id = category.Id })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Add")" class="btn btn-success">Add New Category</a>@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}

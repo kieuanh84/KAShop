@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold text-dark">QUẢN TRỊ VIÊN</h1>
+        <p class="text-muted">Chào mừng trở lại! Hệ thống đang sẵn sàng quản lý.</p>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card border-0 shadow-lg h-100 admin-card" style="background: linear-gradient(135deg, #A9D0F5 0%, #f5f7fa 100%);">
+                <div class="card-body text-center p-5">
+                    <i class="bi bi-box-fill display-1 text-primary mb-3"></i>
+                    <h2 class="fw-bold">SẢN PHẨM</h2>
+                    <p class="text-muted mb-4">Quản lý kho hàng, cập nhật giá và hình ảnh sản phẩm.</p>
+
+                    <a asp-area="Admin" asp-controller="Product" asp-action="Index"
+                       class="btn btn-primary btn-lg px-5 rounded-pill shadow">Vào quản lý</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card border-0 shadow-lg h-100 admin-card" style="background: linear-gradient(135deg, #FFCCBC 0%, #f5f7fa 100%);">
+                <div class="card-body text-center p-5">
+                    <i class="bi bi-cart-check-fill display-1 text-danger mb-3"></i>
+                    <h2 class="fw-bold">ĐƠN HÀNG</h2>
+                    <p class="text-muted mb-4">Theo dõi đơn hàng từ khách hàng và trạng thái giao nhận.</p>
+
+                    <a asp-area="Admin" asp-controller="Order" asp-action="Index"
+                       class="btn btn-danger btn-lg px-5 rounded-pill shadow" style="background-color: #ff5722; border:none;">Xem đơn hàng</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .admin-card {
+        transition: all 0.3s ease;
+        border-radius: 20px;
+    }
+
+        .admin-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 1rem 3rem rgba(0,0,0,.175) !important;
+        }
+</style>

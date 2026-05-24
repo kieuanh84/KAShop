@@ -1,0 +1,190 @@
+﻿@using TrangWebBanHang.Helpers
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Bán Đủ Thứ</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #f5f7fa;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        /* NAVBAR */
+
+        .navbar {
+            background-color: #A9D0F5;
+        }
+
+        .navbar-brand {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            margin-left: 15px;
+            color: #333 !important;
+        }
+
+            .navbar-nav .nav-link:hover {
+                color: #ff5722 !important;
+            }
+
+        /* BUTTON */
+
+        .btn-primary {
+            background-color: #ff5722;
+            border-color: #ff5722;
+        }
+
+            .btn-primary:hover {
+                background-color: #f44336;
+                border-color: #f44336;
+            }
+
+        /* CARD EFFECT */
+
+        .card {
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+            .card:hover {
+                transform: scale(1.03);
+            }
+
+        /* FOOTER */
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            margin-top: auto;
+        }
+
+            footer a {
+                color: #ffd700;
+                text-decoration: none;
+            }
+
+                footer a:hover {
+                    text-decoration: underline;
+                }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+            <div class="container">
+
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                    🛒 Thích Gì Bán Đó
+                </a>
+
+                <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarMenu">
+                    <ul class="navbar-nav ms-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               asp-controller="Product"
+                               asp-action="Index">
+                                📦 Sản phẩm
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               asp-controller="Category"
+                               asp-action="Index">
+                                📂 Danh mục
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-outline-primary position-relative" asp-controller="ShoppingCart" asp-action="Index">
+                                <i class="bi bi-cart4"></i> Giỏ hàng
+                                @{
+                                    // Lấy giỏ hàng từ Session để đếm số lượng
+                                    var cart = Context.Session.GetJson<List<CartItem>>("Cart");
+                                    var count = cart?.Sum(i => i.Quantity) ?? 0;
+                                }
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    @count
+                                </span>
+                            </a>
+                        </li>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-danger fw-bold"
+                                   asp-area="Admin"
+                                   asp-controller="Admin"
+                                   asp-action="Index">
+                                    ⚙️ Admin
+                                </a>
+                            </li>
+                        }
+
+                    </ul>
+
+                    <partial name="_LoginPartial" />
+
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+
+    <main class="container pb-3">
+
+        @RenderBody()
+
+    </main>
+
+
+    <footer class="text-center">
+        <div class="container">
+
+            © 2026 - Thích Gì Bán Đó |
+            <a asp-controller="Home" asp-action="Privacy">
+                Chính sách bảo mật
+            </a>
+
+        </div>
+    </footer>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

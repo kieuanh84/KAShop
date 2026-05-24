@@ -1,0 +1,41 @@
+﻿@model TrangWebBanHang.Models.Order
+
+@{
+    ViewData["Title"] = "Thanh toán";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center fw-bold mb-4">Thông Tin Giao Hàng</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow border-0 p-4">
+                <form asp-action="ProcessCheckout" method="post">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Họ tên người nhận</label>
+                        <input asp-for="FullName" class="form-control" placeholder="Nguyễn Văn A" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Địa chỉ giao hàng</label>
+                        <input asp-for="Address" class="form-control" placeholder="Số nhà, tên đường..." required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Số điện thoại</label>
+                        <input asp-for="PhoneNumber" class="form-control" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Ghi chú</label>
+                        <textarea asp-for="Notes" class="form-control" rows="3"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-success btn-lg w-100 fw-bold shadow-sm">
+                        XÁC NHẬN ĐẶT HÀNG
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

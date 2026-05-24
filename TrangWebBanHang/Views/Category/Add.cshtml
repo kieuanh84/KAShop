@@ -1,0 +1,17 @@
+﻿@model TrangWebBanHang.Models.Category
+
+@{
+    ViewData["Title"] = "Thêm Category";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Add" method="post">
+    <div class="form-group">
+        <label for="Name">Tên Category</label>
+        <input type="text" class="form-control" id="Name" name="Name" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>
+
+<a href="@Url.Action("Index")" class="btn btn-secondary">Back to List</a>
